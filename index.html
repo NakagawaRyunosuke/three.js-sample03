@@ -57,10 +57,23 @@
           const mat = new THREE.MeshPhongMaterial();
           mat.map = texture;
   
-          const geometry = new THREE.BoxGeometry(1,1,1);
-          const box = new THREE.Mesh(geometry, mat);
+          //箱作成
+          const geometry1 = new THREE.BoxGeometry(1,1,1);
+          const box = new THREE.Mesh(geometry1, mat);
           box.position.z = 0;
           scene.add(box);
+
+          //球　
+          const geometry2 = new THREE.SphereGeometry(5, 32, 32);
+          const sphere = new THREE.Mesh(geometry2, mat);
+          sphere.position.x = 1;
+          scene.add(sphere);
+
+          //円錐
+          const geometry3 = new THREE.ConeGeometry( 5, 20, 32 );
+          const cone = new THREE.Mesh( geometry3, mat );
+          cone.position.x = -1;
+          scene.add( cone );
 
           update();
           // 毎フレーム時に実行されるループイベントです
