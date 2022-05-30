@@ -108,14 +108,14 @@
           const stoneGeometry2 = new THREE.SphereGeometry(0.5, 32, 32);
           const stoneSphere = new THREE.Mesh(stoneGeometry2, mat2);
           stoneSphere.position.x = 1;
-          stoneSphere.position.z = -1;
+          stoneSphere.position.z = 1;
           scene.add(stoneSphere);
 
           //stone円錐
           const stoneGeometry3 = new THREE.ConeGeometry( 0.3, 1, 20 );
           const stoneCone = new THREE.Mesh( stoneGeometry3, mat2 );
           stoneCone.position.x = -1;
-          stoneCone.position.z = -1;
+          stoneCone.position.z = 1;
           scene.add( stoneCone );
 
           stoneGroup.add(stoneBox);
