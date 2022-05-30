@@ -50,6 +50,9 @@
           scene.add(gridHelper);
           const axisHelper = new THREE.AxisHelper(2); //軸の長さ　X：赤、Y：緑、z：青
           scene.add(axisHelper);
+
+          //グループ作成
+          const all = new THREE.Group();
   
           //citテクスチャ読み込み
           const textureLoader = new THREE.TextureLoader();
@@ -78,7 +81,7 @@
           const stoneGeometry = new THREE.BoxGeometry(1,1,1);
           const stoneBox = new THREE.Mesh(stoneGeometry, mat2);
           stoneBox.position.set(0,0,2);
-          scene.add(stonebox);
+          scene.add(stoneBox);
 
           //球　
           const geometry2 = new THREE.SphereGeometry(0.5, 32, 32);
@@ -92,12 +95,21 @@
           cone.position.x = -1;
           scene.add( cone );
 
+          all.add(box);
+          all.add(sphere);
+          all.add(cone);
+          all.add(stoneBox);
+
+          scene.add(all);
+
           update();
           // 毎フレーム時に実行されるループイベントです
           function update() {
             // レンダリング
             renderer.render(scene, camera);
             requestAnimationFrame(update);
+
+            all.rotation.y += 0.01;
           }
         }
       </script>
